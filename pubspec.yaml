@@ -1,0 +1,29 @@
+name: currency_guard
+description: A Malawian counterfeit currency detector
+version: 1.0.0
+publish_to: none
+# repository: https://github.com/jerry3831/currency_guard
+
+environment:
+  sdk: ^3.11.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.1.2
+  shared_preferences: ^2.2.0  
+  local_auth: ^3.0.1
+  flutter_bloc: ^9.1.1
+  dio: ^5.4.0
+  camera: ^0.12.0+1
+  image_picker: ^1.0.7
+  crypto: ^3.0.3
+  permission_handler: ^12.0.1
+  connectivity_plus: ^6.0.3
+  uuid: ^4.5.3
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
