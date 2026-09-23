@@ -51,10 +51,9 @@ async def login(request: LoginRequest, db: AsyncSession = Depends(get_db)) -> Au
         select(User).filter_by(email=request.email.lower())
     )
     user = result.scalar_one_or_none()
-    if user is None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail='User not found')
-
-    if not verify_password(request.password, user.password_hash):
+    # Return 401 for both unknown email and wrong password — same message
+    # to avoid leaking whether an email is registered (user enumeration).
+    if user is None or not verify_password(request.password, user.password_hash):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='Invalid credentials')
 
     token = create_access_token(user.id)

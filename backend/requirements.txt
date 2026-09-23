@@ -1,0 +1,14 @@
+fastapi==0.127.1
+uvicorn[standard]==0.38.0
+sqlalchemy==2.0.51
+asyncpg==0.31.0
+pyjwt==2.13.0
+passlib==1.7.4
+argon2-cffi==25.1.0
+pydantic==2.12.5
+pydantic[email]==2.12.5
+email-validator==2.3.0
+python-multipart==0.0.22
+numpy==2.3.5
+tensorflow==2.18.0
+starlette==0.52.1

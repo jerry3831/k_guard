@@ -142,7 +142,14 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       );
     } on DioException catch (e) {
       if (e.response != null && e.response!.statusCode == 400) {
-        throw const AuthException('Enter valid password');
+        // Surface the server's message (e.g. "Incorrect current password")
+        // so the user knows exactly what went wrong.
+        final data = e.response!.data;
+        String msg = 'Incorrect current password.';
+        if (data is Map<String, dynamic>) {
+          msg = data['detail'] as String? ?? data['message'] as String? ?? msg;
+        }
+        throw AuthException(msg);
       }
       throw _mapDioError(e);
     }
