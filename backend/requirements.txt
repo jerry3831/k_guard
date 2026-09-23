@@ -8,5 +8,5 @@ argon2-cffi==25.1.0
 pydantic==2.12.5
 email-validator==2.3.0
 python-multipart==0.0.22
-numpy==2.3.5
+numpy<2.1.0,>=1.26.0
 tensorflow==2.18.0
